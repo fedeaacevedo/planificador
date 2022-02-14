@@ -1,21 +1,38 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import {
-  SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+  SafeAreaView, ScrollView, StyleSheet, Text, View, Alert } from 'react-native';
+import ControlPresupuesto from './src/components/ControlPresupuesto';
 import Header from './src/components/Header';
 import NuevoPresupuesto from './src/components/NuevoPresupuesto';
 
 
 const App = () => {
+
+  const [isValidPresupuesto, setIsValidPresuesto] = useState(false)
   
+  const handleNuevoPresupuesto = (presupuesto) =>{
+     if(Number(presupuesto) > 0) {
+       setIsValidPresuesto(true)
+     } else {
+       Alert.alert('ERROR', 'El presupuesto no puede ser 0')
+     }
+  }
+
   return (
     
     <View style={styles.contenedor}>
 
       <View style={styles.header}>
         <Header />
-
-        <NuevoPresupuesto />
+        {isValidPresupuesto ? (
+           <ControlPresupuesto /> 
+           ) : (
+          <NuevoPresupuesto
+          handleNuevoPresupuesto={handleNuevoPresupuesto}
+          />
+        )}
+        
       </View>
     </View>
    
