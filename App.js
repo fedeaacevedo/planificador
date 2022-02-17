@@ -1,7 +1,7 @@
 
 import React, {useState} from 'react';
 import {
-  SafeAreaView, ScrollView, StyleSheet, Text, View, Alert } from 'react-native';
+  SafeAreaView, ScrollView, StyleSheet, Text, View, Alert, Pressable, Image } from 'react-native';
 import ControlPresupuesto from './src/components/ControlPresupuesto';
 import Header from './src/components/Header';
 import NuevoPresupuesto from './src/components/NuevoPresupuesto';
@@ -10,6 +10,8 @@ import NuevoPresupuesto from './src/components/NuevoPresupuesto';
 const App = () => {
 
   const [isValidPresupuesto, setIsValidPresuesto] = useState(false)
+  const [presupuesto, setPresupuesto] = useState(0)
+  const [gastos, setGastos] = useState([])
   
   const handleNuevoPresupuesto = (presupuesto) =>{
      if(Number(presupuesto) > 0) {
@@ -25,11 +27,17 @@ const App = () => {
 
       <View style={styles.header}>
         <Header />
+
         {isValidPresupuesto ? (
-           <ControlPresupuesto /> 
+           <ControlPresupuesto
+              presupuesto={presupuesto}
+              gastos={gastos}
+           /> 
            ) : (
           <NuevoPresupuesto
-          handleNuevoPresupuesto={handleNuevoPresupuesto}
+              presupuesto={presupuesto}
+              setPresupuesto={setPresupuesto}
+              handleNuevoPresupuesto={handleNuevoPresupuesto}
           />
         )}
         
