@@ -46,21 +46,20 @@ const styles = StyleSheet.create({
     label: {
         textAlign: 'center',
         fontSize: 24,
-        color: '#3b82f6',
-        marginBottom: 10
+        color: '#3B82F6'
     },
     input: {
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#F5F5F5',
         padding: 10,
         borderRadius: 10,
         textAlign: 'center',
-        marginTop: 10
+        marginTop: 30,
     },
     boton: {
         marginTop: 30,
-        backgroundColor: '#1048a4',
+        backgroundColor: '#1048A4',
         padding: 10,
-        borderRadius: 10,
+        borderRadius: 10
     },
     botonTexto: {
         color: '#FFF',
@@ -68,7 +67,7 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         fontWeight: 'bold'
     }
-
 })
+
 
 export default NuevoPresupuesto

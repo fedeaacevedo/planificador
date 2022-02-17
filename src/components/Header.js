@@ -13,12 +13,10 @@ const Header = () => {
 }
 
 const styles = StyleSheet.create({
-    header: {
-        backgroundColor: '#3b82f6'
-    },
+
     texto: {
         textAlign: 'center',
-        fontSize: 30,
+        fontSize: 30, 
         color: '#FFF',
         textTransform: 'uppercase',
         fontWeight: 'bold',
