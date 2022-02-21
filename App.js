@@ -12,6 +12,7 @@ import Header from './src/components/Header';
 import NuevoPresupuesto from './src/components/NuevoPresupuesto';
 import ControlPresupuesto from './src/components/ControlPresupuesto';
 import FormularioGasto from './src/components/FormularioGasto';
+import { generarId } from './src/helpers';
 const App = () => {
 
   const [isValidPresupuesto, setIsValidPresuesto] = useState(false)
@@ -28,6 +29,23 @@ const App = () => {
     }
   }
 
+    const handleGasto = gasto => {
+
+      if(Object.values(gasto).includes('')){
+      Alert.alert(
+        "Error",
+        "Todos los campos son obligatorios"
+      )
+        return
+    }
+    // Añadir nuevo gasto al state
+
+   gasto.id = generarId()
+
+    setGastos([...gastos, gasto])
+    setModal(!modal)
+
+  }
   return (
     <ScrollView>
       <View style={styles.contenedor}>
@@ -55,7 +73,10 @@ const App = () => {
             animationType='slide'
             visible={modal}
           >
-            <FormularioGasto />
+            <FormularioGasto
+              setModal={setModal}
+              handleGasto={handleGasto}
+            />
           </Modal>
         )}
 
