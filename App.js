@@ -1,14 +1,17 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-  ScrollView, Modal, StyleSheet, Text, View, Alert, Pressable, Image
+  ScrollView,
+  StyleSheet,
+  View,
+  Alert,
+  Pressable,
+  Image,
+  Modal
 } from 'react-native';
-import ControlPresupuesto from './src/components/ControlPresupuesto';
 import Header from './src/components/Header';
 import NuevoPresupuesto from './src/components/NuevoPresupuesto';
+import ControlPresupuesto from './src/components/ControlPresupuesto';
 import FormularioGasto from './src/components/FormularioGasto';
-
-
 const App = () => {
 
   const [isValidPresupuesto, setIsValidPresuesto] = useState(false)

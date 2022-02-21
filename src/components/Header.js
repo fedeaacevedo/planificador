@@ -1,14 +1,13 @@
 import React from 'react'
-import { SafeAreaView, Text, StyleSheet, View } from 'react-native'
+import { Text, View, StyleSheet, SafeAreaView } from 'react-native'
 
 const Header = () => {
     return (
+        <SafeAreaView>
+            <Text style={styles.texto}>Planificador de Gastos</Text>
 
-        <SafeAreaView style={styles.header}>
-            <Text style={styles.texto}>Planificador de gastos</Text>
+
         </SafeAreaView>
-
-
     )
 }
 

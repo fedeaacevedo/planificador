@@ -1,15 +1,16 @@
 import React from 'react'
-import {Text, SafeAreaView, View, TextInput, StyleSheet, Pressable} from 'react-native'
+import {Text, SafeAreaView, View, TextInput, StyleSheet, Pressable, ScrollView} from 'react-native'
 import {Picker} from '@react-native-picker/picker'
 import globalStyles from '../styles'
 
 
 const FormularioGasto = () => {
   return (
+    <ScrollView>
     <SafeAreaView style={styles.contenedor}>
        <View>
-           <Pressable>
-               <Text>Cancelar</Text>
+           <Pressable style={styles.btnCancelar}>
+               <Text style={styles.btnCancelarTexto}>Cancelar</Text>
            </Pressable>
        </View>
 
@@ -35,7 +36,7 @@ const FormularioGasto = () => {
 
         <View style={styles.campo}>
           <Text style={styles.label}>Categoria Gasto</Text>
-          <Picker style={styles.input}>
+          <Picker>
             <Picker.Item label="-- Seleccione --" value="" />
             <Picker.Item label="Ahorro" value="ahorro" />
             <Picker.Item label="Comida" value="comida" />
@@ -45,13 +46,14 @@ const FormularioGasto = () => {
           </Picker>
         </View>
 
-        <Pressable>
-          <Text>Agregar Gasto</Text>
+        <Pressable style={styles.submitBtn}>
+          <Text style={styles.submitBtnTexto}>Agregar Gasto</Text>
         </Pressable>
 
       </View>
 
     </SafeAreaView>
+    </ScrollView>
   )
 }
 
@@ -66,7 +68,7 @@ const styles = StyleSheet.create({
   titulo:{
     textAlign:'center',
     fontSize: 28,
-    marginVertical: 30,
+    marginBottom: 20,
     color:'#64748b'
   },
   campo:{
@@ -80,7 +82,34 @@ const styles = StyleSheet.create({
   },
   input:{
     backgroundColor:'#f5f5f5',
-    padding: 10
+    padding: 10,
+    borderRadius: 10,
+    marginTop: 10
+  }, 
+  submitBtn:{
+    backgroundColor:'#3b82f6',
+    padding: 10,
+    marginTop:20,
+       borderRadius:10
+  },
+  submitBtnTexto:{
+    textAlign:'center',
+    color:'#fff',
+    fontWeight:'bold',
+    textTransform:'uppercase'
+  },
+  btnCancelar:{
+    backgroundColor:'#FC3C13',
+    padding: 10,
+    marginTop:20,
+    marginHorizontal: 30,
+    borderRadius:10
+  },
+  btnCancelarTexto:{
+    textAlign:'center',
+    color:'#fff',
+    fontWeight:'bold',
+    textTransform:'uppercase',
   }
 })
 

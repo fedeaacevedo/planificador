@@ -1,41 +1,33 @@
-import React from 'react'
-import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native'
+import React  from 'react'
+import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native'
 import globalStyles from '../styles'
 
 const NuevoPresupuesto = ({ 
     presupuesto, 
     setPresupuesto, 
     handleNuevoPresupuesto 
-    }) => {
-
+}) => {
 
     return (
-
-
         <View style={styles.contenedor}>
-            <Text style={styles.label}>
-                Definir Presupuesto
-            </Text> 
+            <Text style={styles.label}>Definir Presupuesto</Text>
 
-            <TextInput
+            <TextInput 
                 keyboardType='numeric'
-                placeholder='Agrega tu presupuesto:
-            Ej. 300'
+                placeholder='Agrega tu presupuesto: Ej. 300'
                 style={styles.input}
-                value={presupuesto.toString()}
+                value={ presupuesto.toString() }
                 onChangeText={setPresupuesto}
             />
 
-            <Pressable
+            <Pressable 
                 style={styles.boton}
-                onPress={() =>
-                    handleNuevoPresupuesto(presupuesto)}
+                onPress={() => handleNuevoPresupuesto(presupuesto)}
             >
                 <Text style={styles.botonTexto}>Agregar Presupuesto</Text>
             </Pressable>
-
+            
         </View>
-
     )
 }
 
